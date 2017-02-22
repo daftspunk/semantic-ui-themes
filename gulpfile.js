@@ -10,7 +10,8 @@ var
     minifyOpts = {
         processImport: false,
         restructuring: false,
-        keepSpecialComments: 0
+        keepSpecialComments: 0,
+        keepBreaks: 1
     },
     prefixOpts = {
         browsers: [
@@ -23,12 +24,12 @@ var
     };
 
 gulp.task('skins', function () {
-    return gulp.src('assets/less/skins/*.less')
+    return gulp.src('assets/vendor/semantic-ui/dist/less/*.less')
         .pipe(less())
         .pipe(autoprefixer(prefixOpts))
         .pipe(flatten())
         .pipe(minifyCSS(minifyOpts))
-        .pipe(gulp.dest('assets/css/skins'));
+        .pipe(gulp.dest('assets/vendor/semantic-ui/dist/css'));
 });
 
 /*
